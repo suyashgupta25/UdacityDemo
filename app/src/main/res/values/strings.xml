@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Udacity Demo</string>
+
+    <string name="label_toolbar_courses_list">Courses</string>
+    <string name="label_toolbar_course_details">Course Details</string>
+
+    <string name="error_no_internet">No internet connection. Please check network settings</string>
+
+
+    <!--I know this not accurate but it will not be sent to the server in this case, it is just used internally-->
+    <string name="sync_account_type">udacity.com</string>
+    <!--The content_authority string is the Uri authority for your content provider.-->
+    <string name="content_authority">com.udacity</string>
+
+
+    <string name="action_courses_error">actionCoursesError</string>
+
+    <string name="param_courses_error">paramCoursesError</string>
+
+    <string name="param_course_details_key">paramCoursesDetailsKey</string>
+
+    <!-- UI Widgets -->
+    <string name="expand_string">more</string>
+    <string name="collapsed_string">less</string>
+
+    <string name="glide_config1">config1</string>
+    <string name="glide_config2">config2</string>
+</resources>

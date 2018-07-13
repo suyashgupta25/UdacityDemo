@@ -1,0 +1,19 @@
+package com.udacity.data.model.api.courses;
+
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
+/**
+ * Created by suyashg on 07/07/18.
+ */
+
+public class CourseAffiliate {
+
+    @Expose
+    @SerializedName("image")
+    private String imageURL;
+
+    @Expose
+    @SerializedName("name")
+    private String name;
+}

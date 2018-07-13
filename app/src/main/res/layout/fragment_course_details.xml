@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.udacity.ui.courses.coursedetails.CourseDetailsViewModel" />
+
+        <variable
+            name="glide"
+            type="com.bumptech.glide.Glide" />
+
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/ll_courses_details"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imv_course_details_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:adjustViewBounds="true"
+                    android:background="@color/light_gray"
+                    android:scaleType="fitCenter"
+                    app:glideConfig='@{"config1"}'
+                    app:glideImageSrc='@{viewModel.imageUrl}' />
+
+                <TextView
+                    android:id="@+id/tv_course_details_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="4dp"
+                    android:text="@{viewModel.courseTitle}" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_course_details_duration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="6dp"
+                        android:layout_marginTop="2dp"
+                        android:drawableLeft="@android:drawable/ic_menu_my_calendar"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical"
+                        android:maxLines="1"
+                        android:text="@{viewModel.duration}"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tv_course_details_level"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="6dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_weight="1"
+                        android:ellipsize="end"
+                        android:gravity="center_vertical|right"
+                        android:maxLines="1"
+                        android:text="@{viewModel.level}"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_full_course_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_marginTop="2dp"
+                    android:text="@{viewModel.courseDesc}"
+                    android:textSize="12sp"
+                    android:visibility='@{viewModel.courseDesc.equals("") ? View.GONE : View.VISIBLE}' />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_marginTop="2dp"
+                    android:text="Authors:"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <include
+                    android:id="@+id/include_author_1"
+                    layout="@layout/include_author_layout"
+                    android:visibility='@{viewModel.author1.name.equals("") ? View.GONE : View.VISIBLE}'
+                    app:author="@{viewModel.author1}" />
+
+                <include
+                    android:id="@+id/include_author_2"
+                    layout="@layout/include_author_layout"
+                    android:visibility='@{viewModel.author2.name.equals("") ? View.GONE : View.VISIBLE}'
+                    app:author="@{viewModel.author2}" />
+
+                <include
+                    android:id="@+id/include_author_3"
+                    layout="@layout/include_author_layout"
+                    android:visibility='@{viewModel.author3.name.equals("") ? View.GONE : View.VISIBLE}'
+                    app:author="@{viewModel.author3}" />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</layout>
